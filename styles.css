@@ -104,6 +104,7 @@ body {
     background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 0;
 }
 
 .btn-gradient:hover::before {
@@ -113,6 +114,21 @@ body {
 .btn-gradient:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
+    color: white;
+}
+
+/* Ensure text stays on top */
+.btn-gradient,
+.btn-white,
+.btn-outline-white {
+    z-index: 1;
+}
+
+.btn-gradient *,
+.btn-white *,
+.btn-outline-white * {
+    position: relative;
+    z-index: 1;
 }
 
 .btn-large {
@@ -230,7 +246,7 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
     line-height: 1.6;
@@ -603,7 +619,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     color: var(--gray-400);
 }
 
@@ -612,6 +628,38 @@ body {
     width: auto;
     filter: brightness(0) invert(1);
     opacity: 0.8;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray-400);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Responsive Design */
@@ -644,7 +692,7 @@ body {
     }
 
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .section {

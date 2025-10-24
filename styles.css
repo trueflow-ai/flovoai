@@ -210,12 +210,26 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
     padding: 4rem 3rem 4rem 3rem;
     border-radius: 24px;
     box-shadow: var(--shadow-xl);
     position: relative;
     overflow: hidden;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .hero-content::before {
@@ -450,6 +464,11 @@ body {
     margin-bottom: 1.5rem;
     color: white;
     box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.service-card-modern:hover .service-icon-modern {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .service-title-modern {
@@ -508,6 +527,12 @@ body {
     font-weight: 800;
     box-shadow: var(--shadow-md);
     z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.process-card:hover .process-number-modern {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
 }
 
 .process-title-modern {
@@ -583,7 +608,9 @@ body {
     z-index: 1;
     max-width: 900px;
     margin: 0 auto;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
     padding: 4rem 3rem 4rem 3rem;
     border-radius: 24px;
     box-shadow: var(--shadow-xl);
@@ -695,6 +722,90 @@ body {
     height: 20px;
 }
 
+/* Stats Section */
+.stats-section {
+    padding: 6rem 0;
+    background: var(--gray-900);
+    border-top: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--gray-400);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Sticky CTA Button */
+.sticky-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--gradient-primary);
+    color: white !important;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.sticky-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.5);
+}
+
+.sticky-cta svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--gradient-primary);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 968px) {
     .hero-title {
@@ -756,6 +867,18 @@ body {
     .services-grid,
     .process-grid {
         grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .sticky-cta {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
     }
 
     .cta-buttons {
@@ -822,6 +945,25 @@ body {
         width: 70px;
         height: 70px;
         font-size: 2.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .sticky-cta span {
+        display: none;
+    }
+
+    .sticky-cta {
+        padding: 1rem;
+        bottom: 1rem;
+        right: 1rem;
     }
 }
 

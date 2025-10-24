@@ -731,25 +731,50 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .stat-card {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--primary-light);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-height: 200px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+}
+
+.stat-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--gradient-primary);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 0.5rem;
 }
 
 .stat-number {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
+    color: var(--primary-light);
+    margin-bottom: 0.25rem;
 }
 
 .stat-label {
@@ -871,7 +896,26 @@ body {
 
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.5rem;
+    }
+
+    .stat-card {
+        padding: 2rem 1.5rem;
+        min-height: 180px;
+    }
+
+    .stat-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .stat-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .stat-number {
+        font-size: 1.25rem;
     }
 
     .sticky-cta {
@@ -949,11 +993,26 @@ body {
 
     .stats-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
 
     .stat-card {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1.5rem;
+        min-height: 160px;
+    }
+
+    .stat-icon {
+        width: 52px;
+        height: 52px;
+    }
+
+    .stat-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .stat-number {
+        font-size: 1.15rem;
     }
 
     .sticky-cta span {
